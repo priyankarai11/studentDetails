@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var student=[
+            {
+                name:'A',
+                age:12,
+                marks:[80],
+                address: 'abc',
+                gender:'male'
+            },
+            {
+                name:'B',
+                age:12,
+                marks:[40,70],
+                address: 'abd',
+                gender:'male'
+            },
+            {
+                name:'A',
+                age:15,
+                marks:[75,30,37],
+                address: 'abe',
+                gender:'female'
+            },
+            {
+                name:'D',
+                age:17,
+                marks:[50,80,85,60],
+                address: 'acc',
+                gender:'male'
+            },
+            {
+                name:'F',
+                age:21,
+                marks:[25,98,45,79,90],
+                address: 'ayc',
+                gender:'female'
+            },
+            {
+                name:'S',
+                age:14,
+                marks:[70,25,65,89,92,18],
+                address: 'abc',
+                gender:'female'
+            },
+            {
+                name:'A',
+                age:15,
+                marks:[10,35,50,70,85,99,12],
+                address: 'aac',
+                gender:'female'
+            },
+            {
+                name:'D',
+                age:18,
+                marks:[65,75,25,89,50,90,88,100],
+                address: 'bbc',
+                gender:'male'
+            },
+            {
+                name:'B',
+                age:13,
+                marks:[55,60,45,76,87,85,45,89,85],
+                address: 'ccc',
+                gender:'male'
+            },
+            {
+                name:'A',
+                age:12,
+                marks:[90,70,80,65,60,75,85,95,49,99],
+                address: 'aaa',
+                gender:'female'
+            },
+        ];
+
+var pass_count=0, fail_count=0
+let average = student.map(({ name, age, marks, address, gender }) => {
+
+    //finding average
+   let average_mark = marks.reduce((acc,curr) => acc + curr) / marks.length
+
+   //is_fail or not
+   let is_fail=marks.find((item)=>item<40) ? true : false
+
+    //count of failed and pass students
+   if(is_fail===true)fail_count++
+   else pass_count++
+
+   //deviation
+   
+   let deviation=marks.map(function(value)
+   
+   {
+        if(value>=40)
+        {
+            return 0
+        }
+        else
+        {
+            return 40-value
+        }
+   })
+
+   return { name, age, marks, average_mark, address, gender, is_fail, fail_count, pass_count, deviation }
+});
+console.log( average)
+
+        
+</script>
+</body>
+</html>
